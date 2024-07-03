@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 3</title>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 10vh;">
+        <h1>GetData API</h1>
+        <p>Enter two numbers and click the button to calculate the sum.</p>
+        <form>
+            <input id="num" placeholder="Enter a number">
+            <button type="submit">Calculate</button>
+        </form>
+
+        <p id="result"></p>
+    </div>
+    <script >
+        const button = document.querySelector("button");
+
+        button.addEventListener("click", event =>{
+            event.preventDefault();
+            const value = document.getElementById("num").value;            
+            console.log(value);
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET",`/getData?number=${value}`);
+            xhr.onload = ()=>{ 
+                if(xhr.status === 200){
+                    // let data = JSON.parse(xhr.responseText);
+                    let data = xhr.responseText;
+                    document.getElementById('result').textContent = `Result = `+data;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

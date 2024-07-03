@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 3</title>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 10vh;">
+        <h1>HTTP Cookie</h1>
+        <form method="get" id="form" style="display: none;">
+            <input name="name" placeholder="Enter your name">
+            <button type="submit">submit</button>
+        </form>
+
+        <p id="result"></p>
+    </div>
+    <script >
+        const button = document.querySelector("button");
+
+        const xhrCookie = new XMLHttpRequest();
+        xhrCookie.open("GET",`/myName`);
+        xhrCookie.onload = ()=>{
+            if(xhrCookie.status ===200){
+                let data = xhrCookie.responseText;
+                console.log(data);
+                if ( data === 'No cookie'){
+                    document.querySelector('form').style.display = 'block';
+                    let userInput = document.querySelector("input[name=name]").value;
+                    document.getElementById("form").action = "/trackName?"+userInput;
+                }
+                else{
+                    console.log(data);
+                    document.getElementById('result').textContent = data;
+                }
+            }
+        }
+        xhrCookie.send();
+
+        button.addEventListener("click", event =>{
+            fetch('/trackName?name='+document.querySelector("input[name=name]").value, {method: 'GET'})
+                .then(response =>{
+                    if(!response.ok){
+                        throw new Error('response.statusText');
+                    }
+                    return response.text();
+                })
+                .then(data =>{
+                    document.getElementById("result").textContent = data;
+                })
+                .catch(error =>{
+                    console.log(error);
+                })
+
+        })
+
+
+    </script>
+</body>
+</html>

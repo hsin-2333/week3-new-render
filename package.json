@@ -1,0 +1,29 @@
+{
+  "name": "nodproject1",
+  "version": "1.0.0",
+  "description": "20240701.week3.my nodeJS project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsin-2333/remote-assignments.git#master"
+  },
+  "keywords": [
+    "nodeJS"
+  ],
+  "author": "hsin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsin-2333/remote-assignments/issues"
+  },
+  "homepage": "https://github.com/hsin-2333/remote-assignments/tree/master#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  }
+}
