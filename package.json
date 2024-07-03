@@ -21,7 +21,9 @@
   "homepage": "https://github.com/hsin-2333/remote-assignments/tree/master#readme",
   "dependencies": {
     "cookie-parser": "^1.4.6",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "engines": {
     "node": ">=18.18.0 <19.0.0"
